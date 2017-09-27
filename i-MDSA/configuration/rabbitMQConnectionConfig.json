@@ -1,0 +1,8 @@
+{
+"rabbitMQConnectionDetails":"" +
+		"{'url':'amqp://localhost'}",
+"cassandraConnectionDetails":"" +
+		"{}",
+"kafkaConnectionDetails":"" +
+		"{}"
+}

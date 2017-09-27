@@ -8,11 +8,13 @@
 "dependencies":{
 	"cassandra-driver":"3.3.0",
 	"kafka-node":"2.2.3",
-	"generic-pool":"3.1.8"
+	"generic-pool":"3.1.8",
+	"rabbitmq-node":"0.5.0"
 },
 "bundleddependencies":[
 	"cassandra-driver",
 	"kafka-node",
-	"generic-pool"
+	"generic-pool",
+	"rabbitmq-node"
 ]
 }
