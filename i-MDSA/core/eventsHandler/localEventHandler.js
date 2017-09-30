@@ -4,14 +4,17 @@
  *
  */
 
+
 var EventEmitter = require('events');
 var eventIDs = require("./EventID");
-var clientConfiguration = require("../controller/configuration");
 
 // Import Listeners
 var startupEventListener = require("./startupEventListeners");
 var shutdownEventListener = require("./shutdownEventListener");
 var mqttPublishEventListener = require("./MQTTPublishListener");
+var cassandraPublisherListener = require("./CassandraPublisherListener");
+var kafkaPublisherListener = require("./KafkaPublisherListener");
+var rabbitMQPublisherListener = require("./RabbitMQPublisherListener");
 
 // Register Listeners
 class StartupEventHandler extends EventEmitter {}
@@ -25,6 +28,18 @@ shutdownEventHandler.on('shutdown', (message)=>{ shutdownEventListener.shutdown(
 class PublishEventHandler extends EventEmitter {}
 const publishEventHandler = new PublishEventHandler();
 publishEventHandler.on('publish', (message)=>{ mqttPublishEventListener.publish(message); });
+
+class CassandraPublishEventHandler extends EventEmitter {}
+const cassandraPublishEventHandler = new CassandraPublishEventHandler();
+cassandraPublishEventHandler.on('publish', (message)=>{ cassandraPublisherListener.publish(message); });
+
+class KafkaPublishEventHandler extends EventEmitter {}
+const kafkaPublishEventHandler = new KafkaPublishEventHandler();
+kafkaPublishEventHandler.on('publish', (message)=>{ kafkaPublisherListener.publish(message); });
+
+class RabbitMQPublishEventHandler extends EventEmitter {}
+const rabbitMQPublishEventHandler = new RabbitMQPublishEventHandler();
+rabbitMQPublishEventHandler.on('publish', (message)=>{ rabbitMQPublisherListener.publish(message); });
 
 // Trigger Events
 function submitEvent(eventID, eventMessage){
@@ -40,6 +55,12 @@ function submitEvent(eventID, eventMessage){
 		
 		case 2:{
 			publishEventHandler.emit("publish",eventMessage);
+		}break;
+		
+		case 3:{
+			cassandraPublishEventHandler.emit("publish",eventMessage);
+			kafkaPublishEventHandler.emit("publish",eventMessage);
+			rabbitMQPublishEventHandler.emit("publish",eventMessage);
 		}break;
 		
 		default:{
