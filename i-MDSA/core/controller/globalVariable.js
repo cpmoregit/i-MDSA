@@ -4,6 +4,3 @@
  *
  */
 
-var rabbitMQConnectionPool="";
-var cassandraConnectionPool="";
-var activeMQConnectionPool="";
