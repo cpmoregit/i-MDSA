@@ -1,7 +1,7 @@
 # i-MDSA IoT-Multicast device agent Subscriber
 I-MDSA is bootstrap template framework to enable edge computing by providing channels to store and forward messages to real-time intelligence and Machine Learning platform. 
 
-I-MDSA framework multi-cast the devices message to Rabbit MQ and Apache Kafka and stores data in Cassandra.
+I-MDSA framework multi-cast the devices message to Rabbit MQ, Apache Kafka and stores data in Cassandra.
 
 ## Usage
 
