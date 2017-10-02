@@ -5,7 +5,7 @@
  */
 
 var cassandra = require("cassandra-driver");
-var connectionDetails = require("/configuration/cassandra.json");
+var connectionDetails = require("../../../configuration/cassandra.json");
 
 function publishMessage(deviceID, message){
 	

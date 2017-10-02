@@ -5,7 +5,7 @@
  */
 
 var stompit = require("stompit");
-var connectionDetails = require("/configuration/rabbitMQ.json");
+var connectionDetails = require("../../../configuration/rabbitMQ.json");
 
 function publishMessage(message){
 
