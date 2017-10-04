@@ -18,7 +18,7 @@ Created with [Nodeclipse](https://github.com/Nodeclipse/nodeclipse-1)
 
 Nodeclipse is free open-source project that grows with your contributions.
 -----------------------------------------------------------------------------------------------------------------
-copyright 2017 Chandrashekhar P. More
+Copyright 2017 Chandrashekhar P. More
 
 Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
 
